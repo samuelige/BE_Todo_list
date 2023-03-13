@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+labels:
+  app: todo_app
+name: app-deployment
+spec:
+replicas: 2
+selector:
+  matchLabels:
+    app: todo_app
+template:
+  metadata:
+    labels:
+      app: todo_app
+  spec:
+    containers:
+    - image: samuelige/todo_live_app
+      name: app-deployment
+      ports:
+      - containerPort: 3000
